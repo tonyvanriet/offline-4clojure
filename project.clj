@@ -6,6 +6,7 @@
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [clj-http "0.5.7"]
                  [cheshire "4.0.4"]
-                 [org.clojure/math.combinatorics "0.0.3"]]
+                 [org.clojure/math.combinatorics "0.0.3"]
+                 [juxt/dirwatch "0.2.2"]]
   :main  offline-4clojure.core
   )
