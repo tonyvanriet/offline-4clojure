@@ -1,13 +1,20 @@
 ;; Compress a Sequence - Easy
 ;; Write a function which removes consecutive duplicates from a sequence.
 ;; tags - seqs
-;; restricted - 
+;; restricted -
 (ns offline-4clojure.p30
   (:use clojure.test))
 
 (def __
-;; your solution here
+  (fn [input]
+    (reduce (fn [acc value]
+              (if (= (last acc) value)
+                acc
+                (conj acc value)))
+            []
+            input))
 )
+
 
 (defn -main []
   (are [soln] soln
@@ -15,3 +22,4 @@
 (= (__ [1 1 2 3 3 2 2 3]) '(1 2 3 2 3))
 (= (__ [[1 2] [1 2] [3 4] [1 2]]) '([1 2] [3 4] [1 2]))
 ))
+

@@ -1,12 +1,15 @@
 ;; Replicate a Sequence - Easy
 ;; Write a function which replicates each element of a sequence a variable number of times.
 ;; tags - seqs
-;; restricted - 
+;; restricted -
 (ns offline-4clojure.p33
   (:use clojure.test))
 
 (def __
-;; your solution here
+  (fn [input n]
+    (reduce #(apply conj %1 (repeat n %2))
+            []
+            input))
 )
 
 (defn -main []
@@ -17,3 +20,4 @@
 (= (__ [[1 2] [3 4]] 2) '([1 2] [1 2] [3 4] [3 4]))
 (= (__ [44 33] 2) [44 44 33 33])
 ))
+

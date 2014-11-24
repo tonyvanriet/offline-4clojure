@@ -6,8 +6,22 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
+  #(loop [values %
+           acc []]
+      (let [value (first values)]
+        (if (nil? value)
+          acc
+          (if (coll? value)
+            (if (empty? (rest values))
+              (recur value
+                     acc)
+              (recur (apply conj (apply vector value) (rest values))
+                     acc))
+            (recur (rest values)
+                   (conj acc value))))))
 )
+
+
 
 (defn -main []
   (are [soln] soln
@@ -15,3 +29,4 @@
 (= (__ ["a" ["b"] "c"]) '("a" "b" "c"))
 (= (__ '((((:a))))) '(:a))
 ))
+

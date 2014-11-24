@@ -6,7 +6,14 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
+  (fn [start end]
+    (loop [curr start
+           acc []]
+      (if (>= curr end)
+        acc
+        (recur (inc curr)
+               (conj acc curr)))))
+
 )
 
 (defn -main []
