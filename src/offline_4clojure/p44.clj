@@ -1,13 +1,16 @@
 ;; Rotate Sequence - Medium
 ;; Write a function which can rotate a sequence in either direction.
 ;; tags - seqs
-;; restricted - 
+;; restricted -
 (ns offline-4clojure.p44
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  (fn [rot-n coll]
+    (let [n (mod rot-n (count coll))]
+      (into (vec (drop n coll)) (take n coll))))
+  )
+
 
 (defn -main []
   (are [soln] soln

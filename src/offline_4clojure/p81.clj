@@ -6,7 +6,11 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
+  (fn [xs ys]
+    (set (for [x xs
+               y ys
+               :when (= x y)]
+           x)))
 )
 
 (defn -main []
