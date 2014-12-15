@@ -6,7 +6,8 @@
   (:use clojure.test))
 
 (def __
-
+  (fn f-x [f x]
+    (cons x (lazy-seq (f-x f (f x)))))
 )
 
 (defn -main []
@@ -15,3 +16,7 @@
 (= (take 100 (__ inc 0)) (take 100 (range)))
 (= (take 9 (__ #(inc (mod % 3)) 1)) (take 9 (cycle [1 2 3])))
 ))
+
+
+
+(take 5 (__ #(inc %) 1))
