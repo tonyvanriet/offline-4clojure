@@ -8,8 +8,9 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  (fn [n]
+    (fn [x]
+      (apply * (repeat n x)))))
 
 (defn -main []
   (are [soln] soln

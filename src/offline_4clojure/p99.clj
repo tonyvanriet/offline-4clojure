@@ -6,8 +6,9 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  (fn [a b]
+    (let [prod (* a b)]
+      (map #(- (int %) 48) (seq (str prod))))))
 
 (defn -main []
   (are [soln] soln

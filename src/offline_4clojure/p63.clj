@@ -6,8 +6,12 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  (fn [f s]
+    (reduce (fn [acc x]
+              (assoc-in acc [(f x)] (conj (get acc (f x) []) x)))
+            {}
+            s)))
+
 
 (defn -main []
   (are [soln] soln

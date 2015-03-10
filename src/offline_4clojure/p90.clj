@@ -6,8 +6,7 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  #(set (for [a % b %2] [a b])))
 
 (defn -main []
   (are [soln] soln

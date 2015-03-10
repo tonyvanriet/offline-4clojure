@@ -7,8 +7,10 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  (fn [a b]
+    (letfn [(divs [x] (set (filter #(integer? (/ x %)) (range 1 (+ x 1)))))]
+      (apply max (clojure.set/intersection (divs a) (divs b))))))
+
 
 (defn -main []
   (are [soln] soln

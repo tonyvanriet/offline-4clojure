@@ -7,8 +7,10 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  (fn [n]
+    (take n (filter (fn [a] (and (< 1 a)
+                                 (not-any? #(integer? (/ a %)) (range 2 a)))) (range)))))
+
 
 (defn -main []
   (are [soln] soln

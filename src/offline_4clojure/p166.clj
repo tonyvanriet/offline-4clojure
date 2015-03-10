@@ -12,8 +12,14 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+
+  (fn [lt a b]
+    (if (lt a b)
+      :lt
+      (if (lt b a)
+        :gt
+        :eq))))
+
 
 (defn -main []
   (are [soln] soln
