@@ -6,8 +6,9 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  (fn [a b]
+    (apply (partial disj (clojure.set/union a b)) (clojure.set/intersection a b))))
+
 
 (defn -main []
   (are [soln] soln

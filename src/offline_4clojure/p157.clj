@@ -6,8 +6,7 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  #(map vector % (range)))
 
 (defn -main []
   (are [soln] soln

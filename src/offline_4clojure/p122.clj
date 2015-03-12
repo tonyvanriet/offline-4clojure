@@ -6,8 +6,8 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  (fn [b]
+    (reduce + (map #(* (- (int %1) 48) (apply * (repeat %2 2))) (reverse b) (range)))))
 
 (defn -main []
   (are [soln] soln

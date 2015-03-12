@@ -8,8 +8,11 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  (fn [& args]
+    (reduce (fn [acc ops]
+              ((first ops) acc (second ops)))
+            (first args)
+            (partition 2 (rest args)))))
 
 (defn -main []
   (are [soln] soln
