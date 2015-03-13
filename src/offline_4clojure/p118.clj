@@ -6,8 +6,11 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  (fn my-map [f s]
+    (when (seq s)
+      (cons (f (first s)) (lazy-seq (my-map f (rest s)))))))
+
+
 
 (defn -main []
   (are [soln] soln

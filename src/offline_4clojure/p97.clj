@@ -9,8 +9,13 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  (fn [n]
+    (loop [i (dec n)
+           row [1]]
+      (if (= i 0)
+        row
+        (recur (dec i)
+               (flatten [1 (map (partial apply +) (partition 2 1 row)) 1]))))))
 
 (defn -main []
   (are [soln] soln

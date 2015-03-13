@@ -5,9 +5,17 @@
 (ns offline-4clojure.p120
   (:use clojure.test))
 
+
 (def __
-;; your solution here
-)
+  (fn [s]
+    (reduce (fn [cnt m]
+              (if (< m (apply + (map #(* % %) (map #(- (int %) 48) (str m)))))
+                (inc cnt)
+                cnt))
+            0
+            s)))
+
+
 
 (defn -main []
   (are [soln] soln
